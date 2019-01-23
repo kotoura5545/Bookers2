@@ -1,0 +1,45 @@
+<body>
+  	<div class="body">
+      <div class="container">
+        <%= h(flash[:notice]) %>
+      
+      	<h2>User info</h2>
+
+
+<%=form_for @user do |f| %>
+  <div class="field">
+    <label for="user_name">Name</label>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"name" %>
+  </div>
+
+  <div class="field">
+    <label for="user_image">Image</label>
+    <%= f.attachment_field :image, class:"user_image" %>
+  </div>
+
+  <div class="field">
+    <label for="user_introduction">Introduction</label>
+    <%= f.text_field :introduction, class:"introduction"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update User' %>
+  </div>
+<% end %>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+  	<div class="row">
+    	<div class="col-xs-3 col-xs-offset-9">
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+
+
+  
+
+</body>

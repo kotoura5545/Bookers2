@@ -1,0 +1,50 @@
+  <body>
+    	<div class="body">
+        <div class="container">
+      
+        	<div class="row">
+            <div class="col-xs-3">
+            <%= render 'partial/form' %>
+            </div>
+
+    <div class="col-xs-9">
+        <h2>Users</h2>
+
+        <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+    <tbody>
+            <% @users.each do |user| %>
+        <tr>
+          <td><%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg' %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to user_path(user) do %>Show<% end %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+    <div class="container">
+    	<div class="row">
+      	<div class="col-xs-3 col-xs-offset-9">
+      		<p>CopyRight Infratop.inc</p>
+      	</div>
+      </div>
+    </div>
+  </footer>
+
+
+    
+
+  </body>

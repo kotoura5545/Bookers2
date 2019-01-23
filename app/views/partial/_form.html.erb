@@ -1,0 +1,23 @@
+
+
+    <h2>User info</h2>
+    <%= attachment_image_tag current_user, :image, :fill, 100, 100, format: 'jpeg' %>
+<hr/>
+    	  <td>name<%= current_user.name %></td>
+        <hr/>
+    	  <td>introduction<%= current_user.introduction %></td>
+
+  <%= link_to edit_user_path(current_user), class:"edit_user_#{current_user}" do %>
+  <span class="col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_1914"></span>
+  <% end %>
+
+    <h2>New book</h2>
+    <%= form_for(@book) do |f| %>
+        <label for="book_title">Title</label><br>
+        <%= f.text_field :book_title %>
+
+        <label for="book_opinion">Opinion</label><br>
+        <%= f.text_area :opinion, class: "book_body" %>
+        <%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
+    <% end %>
+

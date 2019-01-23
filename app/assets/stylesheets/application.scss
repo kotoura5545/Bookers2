@@ -14,4 +14,15 @@
  *= require_self
  */
   @import "bootstrap-sprockets";  /*ここを追加*/
-  @import "bootstrap";            /*ここを追加*/
+  @import "bootstrap";
+            /*ここを追加*/
+.glyphicon {
+  display: inline-block;
+  margin-right: 10px;
+}
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
