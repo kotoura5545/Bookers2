@@ -1,14 +1,11 @@
   	<div class="body">
       <div class="container">
-        
-        <p id="notice">Signed in successfully.</p>
-      
       	<div class="row">
   			  <div class="col-xs-3">
 
- 					<%= render 'partial/form' %>
+ 					<%= render 'partial/form', book_create: @book_create, user: @user %>
 				</div>
-
+        <%= h(flash[:notice]) %>
   <div class="col-xs-9">
     <h2>Books</h2>
 
@@ -23,10 +20,14 @@
   </thead>
 
   <tbody>
-  	            <% @books.each do |book| %>
-        <tr><%= link_to edit_user_path(current_user), class:"edit_user_#{current_user}" do %>
-          <td><%= attachment_image_tag current_user, :image, :fill, 100, 100, format: 'jpeg' %></td>
-          <td><%= book.book_title %></td>
+  	            <% @user_books.each do |book| %>
+        <tr>
+          <td>
+          	<%= link_to user_path(book.user_id), class:"user_#{book.user_id}" do %>
+          	<%= attachment_image_tag book.user, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg", :size =>"50x50" %></td>
+          <% end %>
+          <td><%= link_to book_path(book), class:"book_#{book.id}" do %>
+          	<%= book.book_title %></td>
           <td><%= book.opinion %></td>
           <% end %>
         </tr>

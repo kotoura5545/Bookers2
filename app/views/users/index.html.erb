@@ -4,7 +4,7 @@
       
         	<div class="row">
             <div class="col-xs-3">
-            <%= render 'partial/form' %>
+            <%= render 'partial/form', book_create: @book_create, user: @user%>
             </div>
 
     <div class="col-xs-9">
@@ -22,9 +22,9 @@
     <tbody>
             <% @users.each do |user| %>
         <tr>
-          <td><%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg' %></td>
-          <td><%= user.name %></td>
-          <td><%= link_to user_path(user) do %>Show<% end %></td>
+          <td><%= link_to user_path(user.id), class: "user_#{user.id}" do %><%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg", :size =>"50x50", class: "user_image" %><% end %></td>
+          <td><%= link_to user_path(user.id) do %><%= user.name %><% end %></td>
+          <td><%= link_to user_path(user.id), class: "user_#{user.id}" do %>Show<% end %></td>
         </tr>
       <% end %>
     </tbody>

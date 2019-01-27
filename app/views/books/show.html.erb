@@ -1,0 +1,52 @@
+  <body>
+    	<div class="body">
+        <div class="container">
+      
+        	<div class="row">
+            <div class="col-xs-3">
+            <%= render 'partial/form', book_create: @book_create, user: @user %>
+            </div>
+<%= h(flash[:notice]) %>
+    <div class="col-xs-9">
+        <h2>Book detail</h2>
+
+        <table class="table">
+      <thead>
+        <tr>
+          <th colspan="1"></th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+    <tbody>
+        <tr>
+          <td><%= link_to user_path(@user) do %><%= attachment_image_tag @book_detail.user, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg", :size =>"50x50", class: "user_image" %><% end %></td>
+          <td><%= link_to book_path(@book_detail), class: "book_#{@book_detail.id}" do %><%= @book_detail.book_title %><% end %></td>
+          <td><%= @book_detail.opinion %></td>
+          <td><%= link_to edit_book_path(@book_detail), class:"edit_book_#{params[:id]}"  do %><button type="button" class="btn btn-success edit_book_#{current_user}">Edit</button><% end %></td>
+          <td><%= link_to book_path, class:"destroy_book{params[:id]}", method: :delete do %><button type="button" class="btn btn-danger">Destroy</button>
+          <% end %></td>
+        </tr>
+    </tbody>
+  </table>
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+    <div class="container">
+    	<div class="row">
+      	<div class="col-xs-3 col-xs-offset-9">
+      		<p>CopyRight Infratop.inc</p>
+      	</div>
+      </div>
+    </div>
+  </footer>
+
+
+    
+
+  </body>

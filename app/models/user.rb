@@ -9,7 +9,6 @@ class User < ApplicationRecord
   attachment :image
 
   validates :name,  length: { in: 2..20 }
-  validates :name, presence: true
   validates :introduction,  length: { maximum: 50 }
 
   default_scope -> { order(created_at: :desc) }
