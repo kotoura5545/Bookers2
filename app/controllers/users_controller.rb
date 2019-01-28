@@ -7,6 +7,8 @@ class UsersController < ApplicationController
  #      flash[:notice] = "error"
  #    end
 
+  before_action :authenticate_user!
+
   def index
   	@book_create = Book.new
   	@user = current_user
