@@ -41,6 +41,7 @@ class BooksController < ApplicationController
       render edit_book_path
     end
   end
+
   def create
   	@book_create = current_user.books.new(book_params)
   	if @book_create.save
@@ -51,6 +52,18 @@ class BooksController < ApplicationController
   		render user_path
   	end
   end
+
+  def destroy
+    @book_destroy = Book.find(params[:id])
+    if @book_destroy.destroy
+    flash[:notice] = "successfully"
+    redirect_to books_path
+    else
+    flash[:notice] = "error"
+    render edit_book_path
+    end
+  end
+
   private
   def book_params
   	params.require(:book).permit(:book_title,:opinion)
