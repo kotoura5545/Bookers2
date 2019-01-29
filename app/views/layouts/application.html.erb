@@ -29,7 +29,7 @@
         <li><%= link_to user_path(current_user),  class: "home" do %><i class="fas fa-home home"></i>Home<% end %></li>
         <li><%= link_to users_path, class: "users" do %><i class="fas fa-book users"></i>User<% end %></li>
         <li><%= link_to books_path, class: "books" do %><i class="fas fa-book books"></i>Books<% end %></li>
-        <li><%= link_to destroy_user_session_path, class: logout, method: :delete do %><i class="fas fa-sign-out-alt logout"></i></i>logout<% end %></li>
+        <li><%= link_to destroy_user_session_path, class: "logout", method: :delete do %><i class="fas fa-sign-out-alt logout"></i></i>logout<% end %></li>
       </ul>
     <% else %>
     <div class="collapse navbar-collapse navbar-right" id="navbarEexample7">
