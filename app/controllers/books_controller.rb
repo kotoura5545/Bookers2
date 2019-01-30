@@ -65,7 +65,7 @@ class BooksController < ApplicationController
     else
     flash[:notice] = "error"
     @book_edit = Book.find(params[:id])
-    render edit_book_path
+    render :edit
     end
   end
 
