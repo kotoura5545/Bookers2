@@ -8,10 +8,11 @@ class BooksController < ApplicationController
 #     end
 
   def top
-  	if user_signed_in?
-  		redirect_to user_path(current_user)
-  	end
+  	# if user_signed_in?
+  	# 	redirect_to user_path(current_user)
+  	# end
   end
+
   def index
     @books = Book.all
     @user = current_user
@@ -49,7 +50,9 @@ class BooksController < ApplicationController
   		redirect_to book_path(@book_create)
   	else
   		flash[:notice] = "error"
-  		render user_path
+      @books = Book.all
+      @user = current_user
+  		render :index
   	end
   end
 
@@ -60,6 +63,7 @@ class BooksController < ApplicationController
     redirect_to books_path
     else
     flash[:notice] = "error"
+    @book_edit = Book.find(params[:id])
     render edit_book_path
     end
   end

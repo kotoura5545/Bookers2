@@ -13,6 +13,14 @@ def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
 end
 
+  def after_sign_in_path_for(resource)
+    user_path(current_user)
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
   def ensure_correct_user
     @book = User.find_by(id:params[:id])
     if @book.user_id != @current_user.id

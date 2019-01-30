@@ -41,6 +41,11 @@
       </ul>
        <% end %>
 </nav>
+
+<% if flash[:notice] %>
+  <%= flash[:notice]  %>
+<% end %>
+
     <%= yield %>
 
   </body>
